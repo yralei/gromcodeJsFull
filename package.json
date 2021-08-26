@@ -8,12 +8,24 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4"
-  }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yralei/gromcodeJsFull.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yralei/gromcodeJsFull/issues"
+  },
+  "homepage": "https://github.com/yralei/gromcodeJsFull#readme",
+  "description": ""
 }
