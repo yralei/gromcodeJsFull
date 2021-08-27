@@ -1,9 +1,5 @@
 import { calc } from './calculator.js';
 
-it('return null if res string', () => {
-  const res = calc(['string text']);
-  expect(res).toEqual(null);
-});
 it('should return sum of numbers', () => {
   const sum = calc('6 + 6');
   expect(sum).toEqual('6 + 6 = 12');

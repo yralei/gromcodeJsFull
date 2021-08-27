@@ -1,5 +1,5 @@
 /* eslint-disable default-case */
-const calc = (expression) => {
+export const calc = (expression) => {
   if (typeof expression !== 'string') {
     return null;
   }
@@ -24,6 +24,3 @@ const calc = (expression) => {
 
   return `${expression} = ${result}`;
 };
-console.log(calc('asd'));
-
-console.log(6 * 6);
