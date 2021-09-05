@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-return-assign
-const setButton = (buttonText) =>
+export const setButton = (buttonText) =>
   (document.createElement('body').innerHTML = `<button>${buttonText}</button>`);
 // console.log(setButton('Magic Button'));
 
