@@ -5,4 +5,4 @@ export const finishForm = () => {
   document.querySelector('.login-form').prepend(loginForm);
   document.querySelector('[name="password"]').setAttribute('type', 'password');
 };
-console.log(finishForm());
+// console.log(finishForm());
