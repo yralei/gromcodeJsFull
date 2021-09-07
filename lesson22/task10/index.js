@@ -1,8 +1,10 @@
-export const finishForm = () => {
-  const loginForm = document.createElement('input');
-  loginForm.setAttribute('name', 'login');
-  loginForm.setAttribute('type', 'text');
-  document.querySelector('.login-form').prepend(loginForm);
-  document.querySelector('[name="password"]').setAttribute('type', 'password');
+const paginationPage = document.querySelectorAll('.pagination__page');
+const paginationPageArr = Array.from(paginationPage);
+const handleClick = (event) => {
+  const dataPageNum = event.target.dataset.pageNumber;
+  console.log(dataPageNum);
 };
-// console.log(finishForm());
+const result = paginationPageArr.map((btn) =>
+  btn.addEventListener('click', handleClick)
+);
+paginationPageArr[0].addEventListener('click', handleClick);
