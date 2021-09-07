@@ -64,8 +64,8 @@ const onPasswordChange = (event) => {
   const errorText = validate('password', event.target.value);
   passwordErrorElem.textContent = errorText;
 };
-emailErrorElem.addEventListener('input', onEmailChange);
-passwordErrorElem.addEventListener('input', onPasswordChange);
+passwordInputElem.addEventListener('input', onPasswordChange);
+emailInputElem.addEventListener('input', onEmailChange);
 
 const formElem = document.querySelector('.login-form');
 
