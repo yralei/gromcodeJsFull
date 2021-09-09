@@ -4,5 +4,5 @@ export const dayOfWeek = (date, days) => {
   const dayInFuture = new Date(date).setDate(day + days);
   return dayOfWeekArr[new Date(dayInFuture).getDay()];
 };
-const result = dayOfWeek(new Date(2019, 0, 1), 14);
-console.log(result);
+// const result = dayOfWeek(new Date(2019, 0, 1), 28);
+// console.log(result);
