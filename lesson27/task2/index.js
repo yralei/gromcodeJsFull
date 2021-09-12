@@ -3,9 +3,9 @@ const counterElem = document.querySelector('.counter');
 const counterValueElem = document.querySelector('.counter__value');
 
 const onCounterChange = (event) => {
-  const isButton = event.target.classList.contains('.counter__button');
+  const isButton = event.target.classList.contains('counter__button');
 
-  if (isButton) {
+  if (!isButton) {
     return;
   }
   // eslint-disable-next-line prefer-destructuring
