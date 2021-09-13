@@ -1,39 +1,16 @@
-/* eslint-disable */
+// compose
+// const add3 = (value) => value + 3;
+// const mult2 = (value) => value * 2;
+// const div4 = (value) => value / 4;
+// const add2 = (value) => value + 2;
+// const square = (value) => value * value;
+// const half = (value) => value / 2;
 
-/* оператор || (OR) */
-console.log('false || true:', false || true);
-console.log('false || true || false:', false || true || false);
-console.log('false || false || false:', false || false || false);
-
-/* оператор && (AND) */
-console.log('false && true:', false && true);
-console.log('false && true && false:', false && true && false);
-console.log('true && true && true:', true && true && true);
-
-/* Логические операторы могут применятся к любым типам данных */
-
-/* || находит первое истинное значение */
-console.log("'text' || false:", 'text' || false);
-console.log("true || 'text':", true || 'text');
-console.log(
-  "undefined || null || 0 || '' || null:",
-  undefined || null || 0 || '' || null
-);
-
-const customAmount = null; // не выводим
-const defaultAmount = 17; // не выводим
-const amount = customAmount || defaultAmount; // выводим значение переменной amount в формате console.log('amount:', amount);
-console.log('amount:', amount);
-/* && находит первое ложное значение */
-console.log("'text' && false:", 'text' && false);
-console.log("true && 'text':", true && 'text');
-console.log(
-  "undefined && null && 0 && '' && null:",
-  undefined && null && 0 && '' && null
-);
-
-/* оператор отрицания (OR) */
-console.log('!true:', !true);
-console.log('!false:', !false);
-console.log("!'text':", !'text');
-console.log("!!'text':", !!'text');
+export const compose =
+  (...functions) =>
+  (value) =>
+    functions.reduce((acc, func) => func(acc), value);
+// const superFunc = compose(add3, mult2, div4, add2, square, half);
+// console.log(superFunc(2));
+// console.log(superFunc(100));
+// console.log(superFunc(-1));
