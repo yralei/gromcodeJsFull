@@ -1,35 +1,55 @@
-/* eslint-disable */
+const shmoment = (date) => {
+  let newDate = new Date(date);
 
-if (true) console.log("I'm in");
+  const calculator = {
+    add(period, value) {
+      const result = {
+        milliseconds: (value) =>
+          newDate.setMilliseconds(newDate.getMilliseconds() + value),
+        seconds: (value) => newDate.setSeconds(newDate.getSeconds() + value),
+        minutes: (value) => newDate.setMinutes(newDate.getMinutes() + value),
+        hours: (value) => newDate.setHours(newDate.getHours() + value),
+        days: (value) => newDate.setDate(newDate.getDate() + value),
+        months: (value) => newDate.setMonth(newDate.getMonth() + value),
+        years: (value) => newDate.setFullYear(newDate.getFullYear() + value),
+      };
+      newDate = new Date(result[period](value));
+      return calculator;
+    },
 
-if (false) {
-  console.log("I'm not in");
-}
+    subtract(period, value) {
+      const result = {
+        milliseconds: (value) =>
+          newDate.setMilliseconds(newDate.getMilliseconds() - value),
+        seconds: (value) => newDate.setSeconds(newDate.getSeconds() - value),
+        minutes: (value) => newDate.setMinutes(newDate.getMinutes() - value),
+        hours: (value) => newDate.setHours(newDate.getHours() - value),
+        days: (value) => newDate.setDate(newDate.getDate() - value),
+        months: (value) => newDate.setMonth(newDate.getMonth() - value),
+        years: (value) => newDate.setFullYear(newDate.getFullYear() - value),
+      };
+      newDate = new Date(result[period](value));
+      return calculator;
+    },
 
-if ('text') {
-  console.log('Yes');
-}
+    result() {
+      return newDate;
+    },
+  };
+  return calculator;
+};
 
-if (null) {
-  console.log('Yes');
-} else {
-  console.log('Else');
-}
-
-// create age variable here
-let age = 25;
-if (age < 16) {
-  console.log('Too young');
-} else if (age >= 16 && age < 18) {
-  console.log('Almost ready');
-} else if (age >= 18 && age < 65) {
-  console.log('Ready');
-} else {
-  console.log('Else');
-}
-
-// Тернаный оператор ? : ( const result = условие ? значение1 : значение2; )
-
-// create amount variable here
-let amount = 16;
-const result = amount > 17 ? 'full' : 'empty';
+const res = shmoment(new Date(2020, 10, 4, 0, 0, 0, 0))
+  .add('years', 11)
+  .subtract('years', 2)
+  .add('months', 6)
+  .subtract('months', 2)
+  .add('hours', 5)
+  .subtract('hours', 1)
+  .add('minutes', 10)
+  .subtract('minutes', 30)
+  .add('milliseconds', 10000)
+  .add('milliseconds', 5000)
+  .subtract('seconds', 30)
+  .result();
+console.log(res);
