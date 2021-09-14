@@ -1,4 +1,4 @@
-const shmoment = (date) => {
+export const shmoment = (date) => {
   let newDate = new Date(date);
 
   const calculator = {
@@ -39,17 +39,17 @@ const shmoment = (date) => {
   return calculator;
 };
 
-const res = shmoment(new Date(2020, 10, 4, 0, 0, 0, 0))
-  .add('years', 11)
-  .subtract('years', 2)
-  .add('months', 6)
-  .subtract('months', 2)
-  .add('hours', 5)
-  .subtract('hours', 1)
-  .add('minutes', 10)
-  .subtract('minutes', 30)
-  .add('milliseconds', 10000)
-  .add('milliseconds', 5000)
-  .subtract('seconds', 30)
-  .result();
-console.log(res);
+// const res = shmoment(new Date(2020, 10, 4, 0, 0, 0, 0))
+//   .add('years', 11)
+//   .subtract('years', 2)
+//   .add('months', 6)
+//   .subtract('months', 2)
+//   .add('hours', 5)
+//   .subtract('hours', 1)
+//   .add('minutes', 10)
+//   .subtract('minutes', 30)
+//   .add('milliseconds', 10000)
+//   .add('milliseconds', 5000)
+//   .subtract('seconds', 30)
+//   .result();
+// console.log(res);
