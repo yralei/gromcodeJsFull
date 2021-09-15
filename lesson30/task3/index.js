@@ -1,20 +1,30 @@
-export const printing = () => {
-  console.log(1);
+/* ===> 1 <=== */
 
-  setTimeout(function () {
-    console.log(5);
-  }, 1000);
+/*
+ * successPromise должен зарезолвить число 67
+ * Ответьте себе на вопрос, какой тип данных имеет переменная successPromise
+ */
 
-  console.log(2);
+const successPromise = new Promise((resolve) => {
+  resolve(67);
+});
 
-  setTimeout(function () {
-    console.log(4);
-  }, 0);
+/*
+ * допишите обработчик успешного промиса (аргументы и тело ф-ции onSuccess)
+ * чтобы в консоль вывелся квадрат числа, которое резолвиться из successPromise
+ */
 
-  setTimeout(function () {
-    console.log(6);
-  }, 2000);
+successPromise.then(function onSuccess(number) {
+  console.log(Math.pow(number, 2));
+  // console.log(number * number);
+  // console.log(number ** 2);
+});
 
-  console.log(3);
-};
-// printing();
+/*
+ * в обработчике ошибок промиса (ф-ция onError внутри .catch()) выведите в консоль текст 'I am an error'
+ * текст вывелся в консоль?
+ * подумайте почему
+ */
+successPromise.catch(function onError(error) {
+  console.log('I am an error');
+});
