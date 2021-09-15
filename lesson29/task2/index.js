@@ -1,35 +1,21 @@
-const counterElem = document.querySelector('.counter');
+'use strict';
 
-const counterValueElem = document.querySelector('.counter__value');
-
-const onCounterChange = (event) => {
-  const isButton = event.target.classList.contains('counter__button');
-
-  if (!isButton) {
-    return;
-  }
-  // eslint-disable-next-line prefer-destructuring
-  const action = event.target.dataset.action;
-
-  const oldValue = Number(counterValueElem.textContent);
-
-  const newValue = action === 'decrease' ? oldValue - 1 : oldValue + 1;
-
-  localStorage.setItem('counterValue', newValue);
-
-  counterValueElem.textContent = newValue;
+const pinger = (count, period) => {
+  let i = count;
+  console.log('Ping');
+  const interval = setInterval(() => {
+    if (--i > 0) {
+      console.log('Ping');
+    } else {
+      clearInterval(interval);
+    }
+  }, period);
 };
 
-counterElem.addEventListener('click', onCounterChange);
-
-const onStorageChange = (event) => {
-  counterValueElem.textContent = event.newValue;
-};
-
-window.addEventListener('storage', onStorageChange);
-
-const onDocumentLoaded = () => {
-  counterValueElem.textContent = localStorage.getItem('counterValue') || 0;
-};
-
-document.addEventListener('DOMContentLoaded', onDocumentLoaded);
+// pinger(5, 100); // makes 5 writes with 100 ms interval
+pinger(23, 2000); // makes 7 writes with 1500 ms interval
+pinger(8, 1550);
+pinger(6, 3000);
+pinger(7, 4050);
+pinger(7, 3500);
+pinger(7, 1650);
