@@ -17,9 +17,9 @@ export const addImage = (imgSrc) => {
   });
   return p;
 };
-const imgSrc =
-  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg';
+// const imgSrc =
+//   'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg';
 
-const resultPromice = addImage(imgSrc);
-resultPromice.then((data) => console.log(data));
-resultPromice.catch((error) => console.log(error));
+// const resultPromice = addImage(imgSrc);
+// resultPromice.then((data) => console.log(data));
+// resultPromice.catch((error) => console.log(error));
