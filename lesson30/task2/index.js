@@ -1,21 +1,38 @@
 'use strict';
+/* здесь мы создаем промис, который резолвит объект { name: 'Tom', age: 17 } через 1 секунду */
+const userDataPromise = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve({ name: 'Tom', age: 17 });
+  }, 1000);
+});
 
-export const pinger = (count, period) => {
-  let i = count;
-  console.log('Ping');
-  const interval = setInterval(() => {
-    if (--i > 0) {
-      console.log('Ping');
-    } else {
-      clearInterval(interval);
-    }
-  }, period);
-};
+/*
+ * Выведите в консоль переменную userDataPromise
+ * Ответьте себе на вопрос, какой тип данных имеет переменная userDataPromise?
+ */
 
-// pinger(5, 100); // makes 5 writes with 100 ms interval
-// pinger(23, 2000); // makes 7 writes with 1500 ms interval
-// pinger(8, 1550);
-// pinger(6, 3000);
-// pinger(7, 4050);
-// pinger(7, 3500);
-// pinger(7, 1650);
+// console.log(userDataPromise);
+
+/*
+ * Выведите в консоль переменную userData в обработчике промиса
+ * Ответьте себе на вопрос, что находится в переменной userData?
+ */
+// userDataPromise.then(function onSuccess(userData) {
+//   console.log(userData);
+// });
+
+/*
+ * подпишитесь на успешное выполнение промиса userDataPromise
+ * используйте метод .then
+ * в обработчике промиса (ф-ция внутри .then() ) выведите в консоль строку 'My name is Tom. I am 17 years old'
+ * Tom и 17 достаньте с данных, которые приходят в ф-цию onSuccess
+ */
+
+userDataPromise.then((value) => {
+  // console.log(value);
+  const { name } = value;
+  // console.log(name);
+  const { age } = value;
+  // console.log(age);
+  console.log(`'My name is ${name}. I am ${age} years old'`);
+});
