@@ -1,5 +1,5 @@
 export const addImage = (imgSrc) => {
-  const p = new Promise((resolveCb, rejectCb) => {
+  const p = new Promise((resolve, reject) => {
     const imgElem = document.createElement('img');
     imgElem.setAttribute('alt', 'My Photo');
     imgElem.src = imgSrc;
@@ -8,17 +8,17 @@ export const addImage = (imgSrc) => {
 
     const onImageLoaded = () => {
       const { width, height } = imgElem;
-      resolveCb({ width, height });
+      resolve({ width, height });
     };
     imgElem.addEventListener('load', onImageLoaded);
     imgElem.addEventListener('error', () =>
-      rejectCb(new Error('Image load is failed'))
+      reject(new Error('Image load is failed'))
     );
   });
   return p;
 };
-// const imgSrc =
-//   'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg';
+const imgSrc =
+  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg';
 
-// const resultPromice = addImagePromise(imgSrc);
-// resultPromice.catch((error) => console.log(error));
+const resultPromice = addImage(imgSrc);
+resultPromice.catch((error) => console.log(error));
