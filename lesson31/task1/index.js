@@ -1,7 +1,6 @@
 'use strict';
 
-// export
-const requestUserData = (userId) => {
+export const requestUserData = (userId) => {
   const request = new Promise((resolve, reject) => {
     if (userId === 'broken') {
       setTimeout(() => {
