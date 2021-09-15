@@ -1,4 +1,3 @@
-'use strict';
 /* здесь мы создаем промис, который резолвит объект { name: 'Tom', age: 17 } через 1 секунду */
 const userDataPromise = new Promise((resolve) => {
   setTimeout(() => {
@@ -11,15 +10,15 @@ const userDataPromise = new Promise((resolve) => {
  * Ответьте себе на вопрос, какой тип данных имеет переменная userDataPromise?
  */
 
-// console.log(userDataPromise);
+console.log(userDataPromise);
 
 /*
  * Выведите в консоль переменную userData в обработчике промиса
  * Ответьте себе на вопрос, что находится в переменной userData?
  */
-// userDataPromise.then(function onSuccess(userData) {
-//   console.log(userData);
-// });
+userDataPromise.then(function onSuccess(userData) {
+  console.log(userData);
+});
 
 /*
  * подпишитесь на успешное выполнение промиса userDataPromise
@@ -28,11 +27,6 @@ const userDataPromise = new Promise((resolve) => {
  * Tom и 17 достаньте с данных, которые приходят в ф-цию onSuccess
  */
 
-userDataPromise.then((value) => {
-  // console.log(value);
-  const { name } = value;
-  // console.log(name);
-  const { age } = value;
-  // console.log(age);
-  console.log(`'My name is ${name}. I am ${age} years old'`);
+userDataPromise.then(function onSuccess(data) {
+  console.log(`My name is ${data.name}. I am ${data.age} years old`);
 });
