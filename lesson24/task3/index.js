@@ -1,6 +1,5 @@
 export const getDiff = (startDate, endDate) => {
   const start = new Date(startDate).getTime();
-
   const end = new Date(endDate).getTime();
   const diff = Math.abs(start - end);
   const oneDay = 1000 * 60 * 60 * 24;
