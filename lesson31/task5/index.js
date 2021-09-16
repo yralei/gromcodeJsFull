@@ -1,4 +1,4 @@
-const delay = (timeOut) => {
+export const delay = (timeOut) => {
   const p = new Promise((resolve) => {
     setTimeout(() => {
       resolve();
@@ -8,9 +8,9 @@ const delay = (timeOut) => {
 };
 delay(3000).then(() => console.log('Done'));
 
-// function delay(interval) {
+// function delay(timeOut) {
 //   return new Promise((resolve, reject) => {
-//     setTimeout(resolve, interval);
+//     setTimeout(resolve, timeOut);
 //   });
 // }
 // delay(3000).then(() => console.log('Done'));
