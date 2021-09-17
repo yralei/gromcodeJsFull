@@ -1,36 +1,26 @@
-'use strict';
+// eslint-disable-next-line max-classes-per-file
+class Sportsman {
+  constructor(name) {
+    this.name = name;
+  }
 
-export const requestUserData = (userId) => {
-  const request = new Promise((resolve, reject) => {
-    if (userId === 'broken') {
-      setTimeout(() => {
-        reject(new Error('User not found'));
-      }, 500);
-    } else {
-      setTimeout(() => {
-        resolve({
-          name: 'John',
-          age: 17,
-          email: `${userId}@example.com`,
-          userId,
-        });
-      }, 1000);
-    }
-  });
-  return request;
-};
-// requestUserData('broken')
-//   .catch((error) => {
-//     console.log(error);
-//     throw new Error('Error');
-//   })
-//   .then((data) => console.log(data))
-//   .finally(() => console.log('finally'));
+  run() {
+    console.log(`${this.name} is running`);
+  }
+}
 
-// requestUserData('userId777')
-//   .catch((error) => {
-//     console.log(error);
-//     throw new Error('Error');
-//   })
-//   .then((data) => console.log(data))
-//   .finally(() => console.log('finally'));
+class Swimmer extends Sportsman {
+  constructor(name, style) {
+    super(name);
+    this.style = style;
+  }
+
+  swim() {
+    console.log(`${this.name} is swimming ${this.style}`);
+  }
+}
+
+const newSwimmer = new Swimmer('John', 'breaststroke');
+console.log(newSwimmer);
+newSwimmer.run();
+newSwimmer.swim();
