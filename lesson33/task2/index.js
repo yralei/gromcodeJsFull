@@ -1,21 +1,22 @@
-'use strict';
+const baseUrl = 'https://5e5cf5eb97d2ea0014796f01.mockapi.io/api/v1/tasks';
 
-export const pinger = (count, period) => {
-  let i = count;
-  console.log('Ping');
-  const interval = setInterval(() => {
-    if (--i > 0) {
-      console.log('Ping');
-    } else {
-      clearInterval(interval);
-    }
-  }, period);
-};
+function getTasksList() {
+  return fetch(baseUrl)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+}
 
-// pinger(5, 100); // makes 5 writes with 100 ms interval
-// pinger(23, 2000); // makes 7 writes with 1500 ms interval
-// pinger(8, 1550);
-// pinger(6, 3000);
-// pinger(7, 4050);
-// pinger(7, 3500);
-// pinger(7, 1650);
+function getTaskById(taskId) {
+  return fetch(`${baseUrl}/${taskId}`)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+}
+
+// // examples
+// getTasksList().then((tasksList) => {
+//   console.log(tasksList); // array of the task objects - [ {'id':'1', 'done':false ... }, {'id':'2', 'done':true ... }, ...]
+// });
+
+// getTaskById('2').then((taskData) => {
+//   console.log(taskData); // {'id':'2', 'done':true ... }
+// });
