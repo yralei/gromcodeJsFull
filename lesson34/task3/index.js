@@ -21,7 +21,7 @@ const addNewUser = (user) => {
 
 function onFormSubmit(e) {
   e.preventDefault();
-  const formData = [...new FormData()].reduce(
+  const formData = [...new FormData(formElem)].reduce(
     (acc, [field, value]) => ({ ...acc, [field]: value }),
     {}
   );
