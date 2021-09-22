@@ -1,28 +1,32 @@
-const getRandomNumber = (from, to) => from + Math.random() * (to - from);
+import { fetchUserData, fetchRepositories } from './gateways.js';
+import { renderUserData } from './user.js';
+import { renderRepos, cleanReposList } from './repos.js';
+import { showSpinner, hideSpinner } from './spinner.js';
 
-const request = (url) =>
-  new Promise((resolve) => {
-    const randomDealy = getRandomNumber(1000, 3000);
-    setTimeout(() => {
-      resolve({
-        userData: {
-          name: 'Tom',
-          age: 17,
-        },
-        source: url,
-      });
-    }, randomDealy);
-  });
-
-const servers = [
-  'https://server.com/us',
-  'https://server.com/au',
-  'https://server.com/eu',
-];
-
-export const getUserASAP = (userId) => {
-  const userUrls = servers.map((serverUrl) => `${serverUrl}/${userId}`);
-  const requests = userUrls.map((userUrl) => request(userUrl));
-  return Promise.race(requests);
+const defaultUser = {
+  avatar_url: 'https://avatars3.githubusercontent.com/u10001',
+  name: '',
+  location: '',
 };
-getUserASAP('user-id-1').then((res) => console.log(res));
+renderUserData(defaultUser);
+
+const showUserBtnElem = document.querySelector('.name-form__btn');
+const userNameInputElem = document.querySelector('.name-form__input');
+
+const onSearchUser = async () => {
+  showSpinner();
+  cleanReposList();
+  const userName = userNameInputElem.value;
+  try {
+    const userData = await fetchUserData(userName);
+    renderUserData(userData);
+    const reposList = await fetchRepositories(userData.repos_url);
+    renderRepos(reposList);
+  } catch (err) {
+    alert(err.message);
+  } finally {
+    hideSpinner();
+  }
+};
+
+showUserBtnElem.addEventListener('click', onSearchUser);
