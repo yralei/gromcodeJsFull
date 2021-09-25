@@ -8,10 +8,7 @@ const getRequestById = (userId) => {
   }
 };
 
-// const res = getRequestById('facebook');
-// console.log(res);
-
-const getUsersBlogs = async (users) => {
+export const getUsersBlogs = async (users) => {
   const arrOfPromise = users.map((user) => getRequestById(user));
   const resolvedPromises = await Promise.all(arrOfPromise);
 
